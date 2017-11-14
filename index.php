@@ -1,7 +1,6 @@
 <?php
   $jsonData = file_get_contents(__DIR__.'/data.json');
-  $data = json_decode($jsonData);
-  exit;
+  $data = json_decode($jsonData, true);
 ?>
 <html>
 <head>
@@ -20,10 +19,10 @@
     <tbody>
       <?php foreach ($data as $user) : ?>
         <tr>
-          <td><?=$user->firstName?></td>
-          <td><?=$user->lastName?></td>
-          <td><?=$user->address?></td>
-          <td><?=$user->phoneNumber?></td>
+          <td><?=$user['firstName']?></td>
+          <td><?=$user['lastName']?></td>
+          <td><?=$user['address']?></td>
+          <td><?=$user['phoneNumber']?></td>
         </tr>
       <?php endforeach;?>
     </tbody>
